@@ -1,0 +1,2 @@
+# Preserve source-manifest and vendored upstream bytes on every checkout.
+* -text
