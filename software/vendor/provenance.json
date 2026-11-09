@@ -1,0 +1,26 @@
+{
+  "repository": "https://github.com/microsoft/Windows-driver-samples",
+  "files": [
+    "LICENSE",
+    "hid/vhidmini2/README.md",
+    "hid/vhidmini2/app/testvhid.c",
+    "hid/vhidmini2/app/testvhid.rc",
+    "hid/vhidmini2/app/testvhid.vcxproj",
+    "hid/vhidmini2/app/testvhid.vcxproj.Filters",
+    "hid/vhidmini2/driver/kmdf/util.c",
+    "hid/vhidmini2/driver/kmdf/vhidmini.inx",
+    "hid/vhidmini2/driver/kmdf/vhidmini.rc",
+    "hid/vhidmini2/driver/kmdf/vhidmini.vcxproj",
+    "hid/vhidmini2/driver/kmdf/vhidmini.vcxproj.Filters",
+    "hid/vhidmini2/driver/umdf2/VhidminiUm.inx",
+    "hid/vhidmini2/driver/umdf2/VhidminiUm.vcxproj",
+    "hid/vhidmini2/driver/umdf2/VhidminiUm.vcxproj.Filters",
+    "hid/vhidmini2/driver/umdf2/util.c",
+    "hid/vhidmini2/driver/umdf2/vhidmini.rc",
+    "hid/vhidmini2/driver/vhidmini.c",
+    "hid/vhidmini2/driver/vhidmini.h",
+    "hid/vhidmini2/inc/common.h",
+    "hid/vhidmini2/vhidmini2.sln"
+  ],
+  "commit": "d49bb7d72f3651952b2b6e4ad28d14fe2247eb69"
+}

@@ -1,0 +1,7 @@
+Control,Windows_input,Recommended_function,Status
+Rudder,Rz,Rudder yaw axis,Validate index and direction in each simulator
+Throttle,Slider,Throttle axis,Validate direction and engine scope
+Gear,Button 1,Landing gear toggle,Validate aircraft behavior
+Brake left,Button 2,Left wheel brake hold,Digital input
+Brake center,Button 3,Both wheel brakes hold,Digital input
+Brake right,Button 4,Right wheel brake hold,Digital input

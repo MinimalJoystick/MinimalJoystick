@@ -1,0 +1,97 @@
+;/*++
+;
+;Copyright (c) Microsoft Corporation All rights Reserved
+;
+;Module Name:
+;
+;    MinimalJoystick.inf
+;
+;Abstract:
+;    INF file for installing HID minidriver (UMDF 2 version)
+;
+; Installation Notes:
+;    Using Devcon: Type "devcon install MinimalJoystick.inf root\MinimalJoystick" to install
+;
+; Important:
+;    This INF depends on MsHidUmdf.inf, which was introduced in build 22000
+;
+;--*/
+[Version]
+Signature="$WINDOWS NT$"
+Class=HIDClass
+ClassGuid={745a17a0-74d3-11d0-b6fe-00a0c90f57da}
+Provider=%ProviderString%
+DriverVer=11/08/2026,0.1.0.0
+CatalogFile=MinimalJoystick.cat
+PnpLockdown = 1
+
+[DestinationDirs]
+DefaultDestDir = 13
+
+[SourceDisksNames]
+1=%Disk_Description%,,,
+
+[SourceDisksFiles]
+MinimalJoystick.dll=1
+
+; ================= Device section =====================
+
+[Manufacturer]
+%ManufacturerString%=Microsoft, NTamd64.10.0...22000
+
+[Microsoft.NTamd64.10.0...22000]
+%DeviceDesc%=MinimalJoystick, root\MinimalJoystick
+
+[MinimalJoystick.NT]
+CopyFiles=UMDriverCopy
+Include=MsHidUmdf.inf
+Needs=MsHidUmdf.NT
+Include=WUDFRD.inf
+Needs=WUDFRD_LowerFilter.NT
+
+[MinimalJoystick.NT.hw]
+Include=MsHidUmdf.inf
+Needs=MsHidUmdf.NT.hw
+AddReg=MinimalJoystick.Branding
+Include=WUDFRD.inf
+Needs=WUDFRD_LowerFilter.NT.hw
+
+[MinimalJoystick.NT.Services]
+Include=MsHidUmdf.inf
+Needs=MsHidUmdf.NT.Services
+Include=WUDFRD.inf
+Needs=WUDFRD_LowerFilter.NT.Services
+
+[MinimalJoystick.NT.Filters]
+Include=WUDFRD.inf
+Needs=WUDFRD_LowerFilter.NT.Filters
+
+[MinimalJoystick.NT.Wdf]
+UmdfService="MinimalJoystick", MinimalJoystick_Install
+UmdfServiceOrder=MinimalJoystick
+UmdfKernelModeClientPolicy=AllowKernelModeClients
+UmdfFileObjectPolicy=AllowNullAndUnknownFileObjects
+UmdfMethodNeitherAction=Copy
+UmdfFsContextUsePolicy=CanUseFsContext2
+
+[MinimalJoystick_Install]
+UmdfLibraryVersion=2.15.0
+ServiceBinary="%13%\MinimalJoystick.dll"
+
+; ================= copy files =====================
+
+[UMDriverCopy]
+MinimalJoystick.dll
+
+;---------------------------------------------------------------;
+
+[Strings]
+ProviderString     ="MinimalJoystick"
+ManufacturerString ="MinimalJoystick"
+ClassName          ="MinimalJoystick"
+Disk_Description   ="MinimalJoystick"
+DeviceDesc         ="MinimalJoystick"
+WudfRdDisplayName  ="Windows Driver Foundation - User-mode Driver Framework Reflector"
+
+[MinimalJoystick.Branding]
+HKR,,FriendlyName,0,"MinimalJoystick"

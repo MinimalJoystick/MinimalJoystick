@@ -1,0 +1,11 @@
+{
+  "compiler": {
+    "package": "Microsoft.Net.Compilers.Toolset",
+    "version": "4.14.0",
+    "url": "https://api.nuget.org/v3-flatcontainer/microsoft.net.compilers.toolset/4.14.0/microsoft.net.compilers.toolset.4.14.0.nupkg",
+    "sha256": "941a9cf3ea618d88d01a3dd6b1a45a06bcf07716a9f81ce4031caa3edd24a845"
+  },
+  "python_test_dependency": "Pillow==13.0.0",
+  "runner": "windows-2022",
+  "scope": "Unsigned deterministic desktop app/helper builds only; the hosted OS/reference assemblies are recorded, not immutable. Native driver build is not covered by this workflow."
+}

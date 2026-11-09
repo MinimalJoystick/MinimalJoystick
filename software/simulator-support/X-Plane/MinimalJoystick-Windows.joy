@@ -1,0 +1,29 @@
+I
+1100 version
+JOY
+
+# DRAFT: validate axis order/direction in X-Plane before distributing.
+OS: Windows
+Name: MinimalJoystick
+Display: MinimalJoystick
+
+View: Controls
+-----------------------------------------------------------------------
+Image: MinimalJoystick-controls.png
+Axis 0 (Rudder; x): 320 190
+Axis 1 (Throttle; x): 320 310
+Button 0 (Gear): 320 385
+Button 1 (Left brake): 265 455
+Button 2 (Both brakes): 320 455
+Button 3 (Right brake): 375 455
+
+Assignments:
+-----------------------------------------------------------------------
+Axis 0: joy_use_hdng
+Axis 0 Type: centerable
+Axis 1: joy_use_thro
+Axis 1 Type: linear
+Button 0: sim/flight_controls/landing_gear_toggle
+Button 1: sim/flight_controls/left_brake
+Button 2: sim/flight_controls/brakes_regular
+Button 3: sim/flight_controls/right_brake

@@ -1,0 +1,22 @@
+[
+  {
+    "file": "DeviceSetup.exe",
+    "sha256": "D83E99E5EEE7721A3753B464C907CEF1B03E7F1FC55DC31F458D03683E4076D2",
+    "matchesOriginalCheckout": true
+  },
+  {
+    "file": "InspectController.exe",
+    "sha256": "86EC651568E4C9874CB45468EA6B1EF9D9D8892C85DC70277D6068BD6D1176FF",
+    "matchesOriginalCheckout": true
+  },
+  {
+    "file": "MinimalJoystick.exe",
+    "sha256": "069FA2800F436149078DC8684CA17469AD97F4DF1F51BA5EC74A093B14EC786F",
+    "matchesOriginalCheckout": true
+  },
+  {
+    "file": "MinimalJoystickSetup.exe",
+    "sha256": "069FA2800F436149078DC8684CA17469AD97F4DF1F51BA5EC74A093B14EC786F",
+    "matchesOriginalCheckout": true
+  }
+]

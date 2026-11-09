@@ -1,0 +1,102 @@
+[
+  {
+    "path": "LICENSE",
+    "sha": "6ef3ee38d1ce61958787dda3b8c669627b248080",
+    "size": 2665
+  },
+  {
+    "path": "hid/vhidmini2/README.md",
+    "sha": "18ec16a9c6ab54e01cd0f041f2d44f1e8cb91a9e",
+    "size": 1200
+  },
+  {
+    "path": "hid/vhidmini2/app/testvhid.c",
+    "sha": "27c150b50568ac33231e9549f2e2f1dc19f8c9b8",
+    "size": 17587
+  },
+  {
+    "path": "hid/vhidmini2/app/testvhid.rc",
+    "sha": "37e1b8ab597bc2d8772a7ddcf65695262d6d0474",
+    "size": 323
+  },
+  {
+    "path": "hid/vhidmini2/app/testvhid.vcxproj",
+    "sha": "4a32f888f48460e6cf8365aad93c16cea1bab37e",
+    "size": 9955
+  },
+  {
+    "path": "hid/vhidmini2/app/testvhid.vcxproj.Filters",
+    "sha": "5b9af3f2b93bac00547bce52e048e118a2263543",
+    "size": 1078
+  },
+  {
+    "path": "hid/vhidmini2/driver/kmdf/util.c",
+    "sha": "1245fd7d1b2f591c3b3bee29bbc00e6983c36b81",
+    "size": 2333
+  },
+  {
+    "path": "hid/vhidmini2/driver/kmdf/vhidmini.inx",
+    "sha": "98ad43eca39a28a9cb595f4529f02f97c1a49685",
+    "size": 1945
+  },
+  {
+    "path": "hid/vhidmini2/driver/kmdf/vhidmini.rc",
+    "sha": "6131d38790ac0a150cf1f81679d71a7b28142370",
+    "size": 516
+  },
+  {
+    "path": "hid/vhidmini2/driver/kmdf/vhidmini.vcxproj",
+    "sha": "4bf211cb54a3c11c1935182d51410bdd310e5c62",
+    "size": 9776
+  },
+  {
+    "path": "hid/vhidmini2/driver/kmdf/vhidmini.vcxproj.Filters",
+    "sha": "e1f3511cf482dd84fdcb9cf62a67edc75b2730c0",
+    "size": 1350
+  },
+  {
+    "path": "hid/vhidmini2/driver/umdf2/VhidminiUm.inx",
+    "sha": "92cdd4b988e0434dde0d3db8c958f966f562ac9a",
+    "size": 2200
+  },
+  {
+    "path": "hid/vhidmini2/driver/umdf2/VhidminiUm.vcxproj",
+    "sha": "00b66b607cbe6c09bbf52e603f1b9faf6669598c",
+    "size": 11072
+  },
+  {
+    "path": "hid/vhidmini2/driver/umdf2/VhidminiUm.vcxproj.Filters",
+    "sha": "cf1ceae9348f33e1bc86368c666c283386348018",
+    "size": 1350
+  },
+  {
+    "path": "hid/vhidmini2/driver/umdf2/util.c",
+    "sha": "6d0eb419126bba3378a68adaf19a5ce8d5e4f26f",
+    "size": 4461
+  },
+  {
+    "path": "hid/vhidmini2/driver/umdf2/vhidmini.rc",
+    "sha": "3721ac980c61a31b30eba55fae163543380546bb",
+    "size": 516
+  },
+  {
+    "path": "hid/vhidmini2/driver/vhidmini.c",
+    "sha": "7d01840f4975fbc6aba99d9364786f654b1d6061",
+    "size": 42674
+  },
+  {
+    "path": "hid/vhidmini2/driver/vhidmini.h",
+    "sha": "118f6c4c9de33afbb1d6acffa60e577543fd9554",
+    "size": 3810
+  },
+  {
+    "path": "hid/vhidmini2/inc/common.h",
+    "sha": "9b14cc6d476fd51959e05d94d3d73445a5c19117",
+    "size": 3274
+  },
+  {
+    "path": "hid/vhidmini2/vhidmini2.sln",
+    "sha": "d3cca830667be1c7e888c73d20402addf575832b",
+    "size": 3746
+  }
+]

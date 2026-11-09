@@ -1,0 +1,452 @@
+[
+  {
+    "path": ".github/workflows/desktop-source-build.yml",
+    "bytes": 3291,
+    "sha256": "37be3e69adbd34b261a2e9f8545142736500afe69b9af2a027bc572635b0ca68",
+    "source_license": "MIT"
+  },
+  {
+    "path": "LICENSE",
+    "bytes": 1106,
+    "sha256": "db376e598a161f8d6acf694cedc0a258fba2b71d65ebf40e698b3ba2a0015808",
+    "source_license": "MIT"
+  },
+  {
+    "path": "LICENSING.md",
+    "bytes": 690,
+    "sha256": "09f00c17b4c869fd897fd3b7f8b68d9e574e575ba50a0f02d61ead9e1f5620f7",
+    "source_license": "MIT"
+  },
+  {
+    "path": "PROTOTYPE-STATUS.md",
+    "bytes": 599,
+    "sha256": "29c3da7bca8935bf9640520a06d1cc923fff0cb3a9035a266b52323d8ea7037a",
+    "source_license": "MIT"
+  },
+  {
+    "path": "README.md",
+    "bytes": 2486,
+    "sha256": "446cbb0941302951e9a969af404afa2ceb79ba693f89edba1a64ebfd3040173a",
+    "source_license": "MIT"
+  },
+  {
+    "path": "software/AssemblyInfo.cs",
+    "bytes": 361,
+    "sha256": "8a587d411c12024aeb0adf80026aa9935ee641857fe12b6529595438881db35e",
+    "source_license": "MIT"
+  },
+  {
+    "path": "software/Bridge.cs",
+    "bytes": 5931,
+    "sha256": "910d14f195c94623ed9c4c202f4b3b91e4d3b0aa45b37861f486ee6e488cb021",
+    "source_license": "MIT"
+  },
+  {
+    "path": "software/Build-App.ps1",
+    "bytes": 2363,
+    "sha256": "b3448cc903a83695375d31af65db06a67a79b2a08e50181128ad3216301b9748",
+    "source_license": "MIT"
+  },
+  {
+    "path": "software/Build-Driver.ps1",
+    "bytes": 2696,
+    "sha256": "3c359230a5b954ba81d80244082dc22b9dd592c610c47c1d64453e9aa2ef7517",
+    "source_license": "MIT"
+  },
+  {
+    "path": "software/Build-OpenSource.ps1",
+    "bytes": 2185,
+    "sha256": "65a54fc3b93680f70eb5a7d78af1f9dd3f5b02e1dc61f40677b01817a97a83cc",
+    "source_license": "MIT"
+  },
+  {
+    "path": "software/Build-Probes.ps1",
+    "bytes": 1340,
+    "sha256": "e703d370ebdf2abe808e52b709bea0e689d5e4b6bcf096a173a5dd3a1e0c163c",
+    "source_license": "MIT"
+  },
+  {
+    "path": "software/ControlDiagram.cs",
+    "bytes": 1459,
+    "sha256": "a0f3f39f521211e1f340713ece5c7eba6e4d318c657f563db348dacdd4d6ee81",
+    "source_license": "MIT"
+  },
+  {
+    "path": "software/driver/common.h",
+    "bytes": 3700,
+    "sha256": "05871134131a02c060cbb84bbb5717cde84bb4b1b94d293ec4c4571a7c0df67f",
+    "source_license": "MS-PL"
+  },
+  {
+    "path": "software/driver/DeviceSetup.cs",
+    "bytes": 3100,
+    "sha256": "d876edbba5584dd72c7538be76a4f5994d228a75f74da66c899beb10b8feb784",
+    "source_license": "MIT"
+  },
+  {
+    "path": "software/driver/LICENSE",
+    "bytes": 2665,
+    "sha256": "07639618c7b94ab9953cc61715f6325877e1854dca611ed9b1bd54497cf5e93a",
+    "source_license": "MS-PL"
+  },
+  {
+    "path": "software/driver/MinimalJoystick.inf",
+    "bytes": 2430,
+    "sha256": "f3a4044cb1cfdede180bc022df1741fd96746429ea85d5dfdcb5cf556f3cbd0a",
+    "source_license": "MS-PL"
+  },
+  {
+    "path": "software/driver/util.c",
+    "bytes": 4461,
+    "sha256": "383567c798b3fc0218793869bb7ff20aa04d79b738a8efdd894e0f28a0e51895",
+    "source_license": "MS-PL"
+  },
+  {
+    "path": "software/driver/vhidmini.c",
+    "bytes": 35162,
+    "sha256": "1e3afecba19bd9a35033e6bece7164a956f6d380e11a695887fb296516f118df",
+    "source_license": "MS-PL"
+  },
+  {
+    "path": "software/driver/vhidmini.h",
+    "bytes": 4064,
+    "sha256": "caea155b9ed9d4cd4e13c3a0309ae28d77907230545d994c7ddd9f2f56f5cf28",
+    "source_license": "MS-PL"
+  },
+  {
+    "path": "software/Install-LocalPrototype.ps1",
+    "bytes": 2361,
+    "sha256": "89c579fafa7ce334d8677dc07cb68163ccaf2f7170afc557da18ddc0e4ebe0af",
+    "source_license": "MIT"
+  },
+  {
+    "path": "software/LICENSE",
+    "bytes": 1106,
+    "sha256": "db376e598a161f8d6acf694cedc0a258fba2b71d65ebf40e698b3ba2a0015808",
+    "source_license": "MIT"
+  },
+  {
+    "path": "software/LICENSING.md",
+    "bytes": 1344,
+    "sha256": "176c0bcc0a9310bb2fcf7bb01decca167b6bcbf3b26c6d3046b21239226e9442",
+    "source_license": "MIT"
+  },
+  {
+    "path": "software/MinimalJoystick.cs",
+    "bytes": 19667,
+    "sha256": "dbe8efb8e5031b559717664c3286168ac1b660e85565f9cd0578acb06557466c",
+    "source_license": "MIT"
+  },
+  {
+    "path": "software/Profiles.cs",
+    "bytes": 5548,
+    "sha256": "c8064e601be8f71790e2cad309b5dffa6121787064dcc55479f21f2e2010b0da",
+    "source_license": "MIT"
+  },
+  {
+    "path": "software/publication/AUDIT.md",
+    "bytes": 4564,
+    "sha256": "4f7c905e0d497865628436fec966467df9a94f55186466a5b4563a8ed85d59ba",
+    "source_license": "MIT"
+  },
+  {
+    "path": "software/publication/BUILD-DEPENDENCIES.json",
+    "bytes": 577,
+    "sha256": "da3688d97985f2d5cac40854835869c8c0e06fd5d838e3b8d1ec035448373fd9",
+    "source_license": "MIT"
+  },
+  {
+    "path": "software/publication/BUILD.md",
+    "bytes": 3488,
+    "sha256": "4cae4e2f125b2d8104d5af5e9ce41a7c70bc7ba3913f4d5f75b5c058787c4ede",
+    "source_license": "MIT"
+  },
+  {
+    "path": "software/publication/CODE-SIGNING-POLICY-DRAFT.md",
+    "bytes": 1746,
+    "sha256": "684d61312db4cf6e8c6fad7ee3395acb5d3fe67e768b0717c14911aca43ca574",
+    "source_license": "MIT"
+  },
+  {
+    "path": "software/publication/PUBLIC-README.md",
+    "bytes": 2486,
+    "sha256": "446cbb0941302951e9a969af404afa2ceb79ba693f89edba1a64ebfd3040173a",
+    "source_license": "MIT"
+  },
+  {
+    "path": "software/publication/README.md",
+    "bytes": 1307,
+    "sha256": "ac23faca3f938731dfbb9b0445f83417f2369a8fe202691659fb238ba79e4971",
+    "source_license": "MIT"
+  },
+  {
+    "path": "software/publication/relocated-build-results.json",
+    "bytes": 676,
+    "sha256": "876dc9b45a1aece375281316704493c49e8b789045600b23d92daa5bd2f2ab49",
+    "source_license": "MIT"
+  },
+  {
+    "path": "software/publication/repeat-build-results.json",
+    "bytes": 620,
+    "sha256": "e2bf2961f945b437d449b1127458c0f4405c3c7b480b7daa6f33d8c395a74795",
+    "source_license": "MIT"
+  },
+  {
+    "path": "software/publication/REPOSITORY-LICENSING.md",
+    "bytes": 690,
+    "sha256": "09f00c17b4c869fd897fd3b7f8b68d9e574e575ba50a0f02d61ead9e1f5620f7",
+    "source_license": "MIT"
+  },
+  {
+    "path": "software/publication/SIGNPATH-APPLICATION-DRAFT.md",
+    "bytes": 3141,
+    "sha256": "417a2287ef465fec16f5c2911797158cf4e87f45f885c6a74cc661ecd9519d9f",
+    "source_license": "MIT"
+  },
+  {
+    "path": "software/publication/THIRD-PARTY-NOTICES.md",
+    "bytes": 1753,
+    "sha256": "8620f19073d547de02c70b009354109426d1d1893c58ea62a84c44e4ae7544c4",
+    "source_license": "MIT"
+  },
+  {
+    "path": "software/Reliability.cs",
+    "bytes": 4869,
+    "sha256": "fd22f3d2c9234d6b0faf24827776f97f8c62ab33c63647f1ba59e4d3c9bb2799",
+    "source_license": "MIT"
+  },
+  {
+    "path": "software/Setup.cs",
+    "bytes": 2228,
+    "sha256": "489185e51517ad05eaaabba3ac0f8f48637f6b7afe4280cba32776fa61bf1607",
+    "source_license": "MIT"
+  },
+  {
+    "path": "software/Sign-LocalPrototype.ps1",
+    "bytes": 2033,
+    "sha256": "b575713c909644b598d98a6dedddf2fa80cacf7c70ddb60e1cd0b1c360a91670",
+    "source_license": "MIT"
+  },
+  {
+    "path": "software/Sign-PublicRelease.ps1",
+    "bytes": 1433,
+    "sha256": "05968129ca94357905048f61ab9ec92d24e397a8545a70b025c4aacca097b81c",
+    "source_license": "MIT"
+  },
+  {
+    "path": "software/simulator-support/README.md",
+    "bytes": 1417,
+    "sha256": "f1c0591fe5dedb0e0f17bafad8b59932284bf2675d8308d7d643a8517a9f5937",
+    "source_license": "MIT"
+  },
+  {
+    "path": "software/simulator-support/recommended-bindings.csv",
+    "bytes": 423,
+    "sha256": "eb8b31b6fecd8703da445110ce71ad2de276ec77a0a49288657d43ca712f91e3",
+    "source_license": "MIT"
+  },
+  {
+    "path": "software/simulator-support/X-Plane/MinimalJoystick-controls.png",
+    "bytes": 19482,
+    "sha256": "33b68994d360c9e15b0dd0d6487d2870ada7301d253bf5224a4acd2828ee1950",
+    "source_license": "MIT"
+  },
+  {
+    "path": "software/simulator-support/X-Plane/MinimalJoystick-Windows.joy",
+    "bytes": 802,
+    "sha256": "8634f5c1dfda3769086fdaa15711a61564eb13b0575f11ce6878894dbdc943bb",
+    "source_license": "MIT"
+  },
+  {
+    "path": "software/tests/test_contract.py",
+    "bytes": 2676,
+    "sha256": "003ddd961851296c4367ad5972f96e129cf4c2d31cb9f4f83fa88e3c73d9b6ea",
+    "source_license": "MIT"
+  },
+  {
+    "path": "software/tests/test_publication.py",
+    "bytes": 1199,
+    "sha256": "03d627925464e9c2fd2b309b2bf1db32c074e5c5eaf199703976bbb6dbe96add",
+    "source_license": "MIT"
+  },
+  {
+    "path": "software/tests/test_support.py",
+    "bytes": 1174,
+    "sha256": "b47c856ded038fc854ac937f92b6b27782ba5cd839bd1d01f1e9dddc3f90e9cd",
+    "source_license": "MIT"
+  },
+  {
+    "path": "software/tools/Bootstrap-OpenSource.ps1",
+    "bytes": 840,
+    "sha256": "34390bf48fcc05f1b56e65458ffed1a57012dfee027b3d11deab914342253206",
+    "source_license": "MIT"
+  },
+  {
+    "path": "software/tools/build_support_art.py",
+    "bytes": 1397,
+    "sha256": "c710347ec1bd397fef1411fecda35cb364d2b8ac7e3c05921adf06e327188889",
+    "source_license": "MIT"
+  },
+  {
+    "path": "software/tools/InspectController.cs",
+    "bytes": 1713,
+    "sha256": "32b8ab4178845ea2be7c83462bbab7dfc4723ea26af853cbefa5dc7b1367f93c",
+    "source_license": "MIT"
+  },
+  {
+    "path": "software/tools/InspectDirectInput.cpp",
+    "bytes": 1084,
+    "sha256": "25feb1d847aff4b31cd7de57b643335e9fa2304c681dd9c455ef2698501640ec",
+    "source_license": "MIT"
+  },
+  {
+    "path": "software/tools/prepare_driver.py",
+    "bytes": 8581,
+    "sha256": "fbf386e3dbd62382978502dce7d7e79c176bf6e7829f24cbed329a025cb21348",
+    "source_license": "MIT"
+  },
+  {
+    "path": "software/tools/prepare_public_source.py",
+    "bytes": 4872,
+    "sha256": "f12a247fef2ac87018041be9f5424eac806b38ce2e8fcaf53b43114b67f3b757",
+    "source_license": "MIT"
+  },
+  {
+    "path": "software/Uninstall-LocalPrototype.ps1",
+    "bytes": 1463,
+    "sha256": "02e1c2f3e82f3eae3abf37291703d99562f10500474477655c8bcd4d094ebae4",
+    "source_license": "MIT"
+  },
+  {
+    "path": "software/vendor/provenance.json",
+    "bytes": 1020,
+    "sha256": "17e117cb9313d281826ff02356e0ec6f79b9b81466de311300984fc85a967c52",
+    "source_license": "MIT"
+  },
+  {
+    "path": "software/vendor/upstream-file-hashes.json",
+    "bytes": 2732,
+    "sha256": "4ae8869e3191d237a33f5b83386d7a906ddd5ddb46db1545c4515feebf20fa52",
+    "source_license": "MIT"
+  },
+  {
+    "path": "software/vendor/vhidmini2/app/testvhid.c",
+    "bytes": 17587,
+    "sha256": "ae5428e404bcb130fbce9c1fcf0762fca6ce9dca2945465e7c14b938be6db536",
+    "source_license": "MS-PL"
+  },
+  {
+    "path": "software/vendor/vhidmini2/app/testvhid.rc",
+    "bytes": 323,
+    "sha256": "a5bb851c5f05915ec591acb4e1915f6156866e6358b3ecee66216a2d768cce45",
+    "source_license": "MS-PL"
+  },
+  {
+    "path": "software/vendor/vhidmini2/app/testvhid.vcxproj",
+    "bytes": 9955,
+    "sha256": "7a053631327bcf592b59e284faeea74aeb08d6b608bb0b0bbae397f422f7c979",
+    "source_license": "MS-PL"
+  },
+  {
+    "path": "software/vendor/vhidmini2/app/testvhid.vcxproj.Filters",
+    "bytes": 1078,
+    "sha256": "01e9280baf348932e2dcf02b0681a48c66f56f9b3e76f385011760d317a1f0c8",
+    "source_license": "MS-PL"
+  },
+  {
+    "path": "software/vendor/vhidmini2/driver/kmdf/util.c",
+    "bytes": 2333,
+    "sha256": "b4869218b63eaf2edf8d4399916149e1621dfc624506760bcd7e715cce0c2ae8",
+    "source_license": "MS-PL"
+  },
+  {
+    "path": "software/vendor/vhidmini2/driver/kmdf/vhidmini.inx",
+    "bytes": 1945,
+    "sha256": "5e1486c9258a841a33cc5af84e3b96d26cc43340b137d1404308acdc5b767853",
+    "source_license": "MS-PL"
+  },
+  {
+    "path": "software/vendor/vhidmini2/driver/kmdf/vhidmini.rc",
+    "bytes": 516,
+    "sha256": "48b5a26d29f22f7c09754bebb12bd0908e96c3d277280ce492c20b9310545752",
+    "source_license": "MS-PL"
+  },
+  {
+    "path": "software/vendor/vhidmini2/driver/kmdf/vhidmini.vcxproj",
+    "bytes": 9776,
+    "sha256": "d8d78d50097d3bc052d3fcb6e625a123f831414f48ec1daa41dc56d9cf701a11",
+    "source_license": "MS-PL"
+  },
+  {
+    "path": "software/vendor/vhidmini2/driver/kmdf/vhidmini.vcxproj.Filters",
+    "bytes": 1350,
+    "sha256": "ab75e65a428b19f6878c794eed33c499496a767d4f4a7f0019fc4afa0e8560ce",
+    "source_license": "MS-PL"
+  },
+  {
+    "path": "software/vendor/vhidmini2/driver/umdf2/util.c",
+    "bytes": 4461,
+    "sha256": "383567c798b3fc0218793869bb7ff20aa04d79b738a8efdd894e0f28a0e51895",
+    "source_license": "MS-PL"
+  },
+  {
+    "path": "software/vendor/vhidmini2/driver/umdf2/vhidmini.rc",
+    "bytes": 516,
+    "sha256": "c458fd41c5edcac2cb180a7b92a01c1ed6052ff246747093c9bd1bd218554c16",
+    "source_license": "MS-PL"
+  },
+  {
+    "path": "software/vendor/vhidmini2/driver/umdf2/VhidminiUm.inx",
+    "bytes": 2200,
+    "sha256": "f8184899ad1a92d85375bbbd66e491b215b71b1c79fbdcd76a07394253a3ef2b",
+    "source_license": "MS-PL"
+  },
+  {
+    "path": "software/vendor/vhidmini2/driver/umdf2/VhidminiUm.vcxproj",
+    "bytes": 11072,
+    "sha256": "51ce8f87d4dd06922c5745a8376ef64da66bf8938589fde81199b57b936fb143",
+    "source_license": "MS-PL"
+  },
+  {
+    "path": "software/vendor/vhidmini2/driver/umdf2/VhidminiUm.vcxproj.Filters",
+    "bytes": 1350,
+    "sha256": "1656066576b61b548b56be3a95a21205c65116c28758004b5f2e7662603451f4",
+    "source_license": "MS-PL"
+  },
+  {
+    "path": "software/vendor/vhidmini2/driver/vhidmini.c",
+    "bytes": 42674,
+    "sha256": "93edd383a7d828a56e56e39d9fbb7f95ace47881e4158fefbf80483aa4b06f94",
+    "source_license": "MS-PL"
+  },
+  {
+    "path": "software/vendor/vhidmini2/driver/vhidmini.h",
+    "bytes": 3810,
+    "sha256": "f31bc115dc63aaa1f7157aeeecb08dc11144e221f02a1361884016abdcebb334",
+    "source_license": "MS-PL"
+  },
+  {
+    "path": "software/vendor/vhidmini2/inc/common.h",
+    "bytes": 3274,
+    "sha256": "fb2b23d5b64984b36433a34dd8910cf801a3ea39721c81e97c43543d297e586e",
+    "source_license": "MS-PL"
+  },
+  {
+    "path": "software/vendor/vhidmini2/LICENSE",
+    "bytes": 2665,
+    "sha256": "07639618c7b94ab9953cc61715f6325877e1854dca611ed9b1bd54497cf5e93a",
+    "source_license": "MS-PL"
+  },
+  {
+    "path": "software/vendor/vhidmini2/README.md",
+    "bytes": 1200,
+    "sha256": "25fec3bcaf89d46fa4039660c4885d5adb679939ba5736c247dab414fd5948ab",
+    "source_license": "MS-PL"
+  },
+  {
+    "path": "software/vendor/vhidmini2/vhidmini2.sln",
+    "bytes": 3746,
+    "sha256": "fbcdc12de0b357fbd4a9c2546286d5278d320c772bc138ac39e91229b3100104",
+    "source_license": "MS-PL"
+  }
+]
