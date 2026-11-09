@@ -1,6 +1,6 @@
-> Historical preparation record for the initial simulated-transport snapshot. Status statements below describe preparation before publication and are retained as evidence, not current repository status. The public repository is https://github.com/MinimalJoystick/MinimalJoystick. An eligibility inquiry was submitted on 2026-11-09; the formal Foundation application remains unsent and acceptance is pending. See README.md for current publication status.
-
 # SignPath application — UNSENT
+
+This is the unsent formal application draft. A separate eligibility inquiry was submitted on 2026-11-09. The repository is now public at https://github.com/MinimalJoystick/MinimalJoystick; preparation-status statements below predate publication. No Foundation acceptance is claimed.
 
 Project: MinimalJoystick. Maintainer/repository/download URL and named reviewers/approvers: pending user choice. No affiliation or approval by SignPath is claimed.
 

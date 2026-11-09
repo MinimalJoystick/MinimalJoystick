@@ -89,7 +89,7 @@ namespace MinimalJoystick {
                     } finally { Marshal.FreeHGlobal(buffer); }
                 }
             } finally { SetupDiDestroyDeviceInfoList(set); }
-            Status="Driver missing â€” preview only; flight sims receive no input";return false;
+            Status="Driver missing — preview only; flight sims receive no input";return false;
         }
         public bool Send(ControlsState state) {
             if(!Connected) return false;
@@ -125,18 +125,19 @@ namespace MinimalJoystick {
         void Check(CheckBox c,string text,int x,int y,bool check) {c.Text=text;c.Checked=check;c.SetBounds(x,y,260,28);c.ForeColor=ForeColor;Controls.Add(c);}
         void Slider(TrackBar t,int x,int y,int value) {t.Minimum=0;t.Maximum=32767;t.Value=value;t.TickStyle=TickStyle.None;t.SmallChange=328;t.LargeChange=3277;t.SetBounds(x,y,330,42);Controls.Add(t);}
         public Prototype() {
-            Text="MinimalJoystick â€” Software Prototype";ClientSize=new Size(960,720);MinimumSize=MaximumSize=Size;AutoScaleMode=AutoScaleMode.None;
+            Text="MinimalJoystick — Software Prototype";ClientSize=new Size(960,720);MinimumSize=MaximumSize=Size;AutoScaleMode=AutoScaleMode.None;
             StartPosition=FormStartPosition.CenterScreen;BackColor=Background;ForeColor=Color.White;Font=new Font("Segoe UI",10);DoubleBuffered=true;
             TextAt("MinimalJoystick",32,24,600,44,26,Color.White);
-            TextAt("SOFTWARE PROTOTYPE  /  0.2",34,72,600,25,10,Accent);
+            TextAt("USB BRIDGE CANDIDATE  /  0.3",34,72,600,25,10,Accent);
+            Action("Physical USB / calibration",690,44,225,delegate {new HardwareUsbEditor(bridge).Show(this);});
             status.SetBounds(34,112,895,46);status.ForeColor=Muted;Controls.Add(status);
             TextAt("Controls",32,177,350,32,18,Color.White);
             TextAt("Transport laboratory",535,177,390,32,18,Color.White);
-            TextAt("Rudder  Â·  Rz axis",34,225,350,24,11,Muted);Slider(rudder,28,260,16384);
+            TextAt("Rudder  ·  Rz axis",34,225,350,24,11,Muted);Slider(rudder,28,260,16384);
             Check(spring,"Spring return on mouse release",34,307,true);
             rudder.MouseUp+=delegate {if(spring.Checked)rudder.Value=16384;};
-            TextAt("Throttle  Â·  Slider axis",34,354,350,24,11,Muted);Slider(throttle,28,390,0);
-            string[] names={"Gear Â· 1","Brake L Â· 2","Brake C Â· 3","Brake R Â· 4"};
+            TextAt("Throttle  ·  Slider axis",34,354,350,24,11,Muted);Slider(throttle,28,390,0);
+            string[] names={"Gear · 1","Brake L · 2","Brake C · 3","Brake R · 4"};
             for(int i=0;i<4;i++) {
                 int bit=1<<i;Button b=Action(names[i],34+(i%2)*190,451+(i/2)*48,178,delegate{});buttons[i]=b;
                 b.MouseDown+=delegate {buttonMask|=(byte)bit;b.BackColor=Color.FromArgb(37,96,88);};
@@ -153,17 +154,19 @@ namespace MinimalJoystick {
             active.SetBounds(537,392,380,34);active.ForeColor=Accent;Controls.Add(active);
             values.SetBounds(537,428,380,60);values.ForeColor=Muted;Controls.Add(values);
             Action("Open Windows controller test",537,499,370,delegate {System.Diagnostics.Process.Start("control.exe","joy.cpl");});
-            Action("Restart bridge",537,545,178,delegate {bridge.Command(3,new ControlsState(16384,(ushort)throttle.Value,0));Bridge.Start();});
-            Action("Calibration / profiles",729,545,178,delegate {new ProfileEditor(profile,delegate{return new ControlsState((ushort)rudder.Value,(ushort)throttle.Value,buttonMask);},delegate(Profile p){profile=p;bridge.Profile(p);}).Show(this);});
+            Action("Restart bridge",537,545,178,delegate {try{Bridge.Restart(bridge);}catch(Exception e){MessageBox.Show(e.Message);}});
+            Action("Sim calibration",729,545,178,delegate {new ProfileEditor(profile,delegate{return new ControlsState((ushort)rudder.Value,(ushort)throttle.Value,buttonMask);},delegate(Profile p){profile=p;bridge.Profile(p);}).Show(this);});
             Action("Control diagram",34,545,178,delegate {new ControlDiagram().Show(this);});
             Action("Stop bridge",224,545,178,delegate {bridge.Command(16,new ControlsState(16384,(ushort)throttle.Value,0));});
             log.SetBounds(34,596,873,72);log.ReadOnly=true;log.BackColor=PanelColor;log.ForeColor=Muted;log.BorderStyle=BorderStyle.None;log.TabStop=false;Controls.Add(log);
-            TextAt("One Windows identity Â· USB priority Â· 250 ms source timeout Â· driver watchdog",34,683,875,24,9,Muted);
+            TextAt("One Windows identity · USB priority · 250 ms source timeout · driver watchdog",34,683,875,24,9,Muted);
             tray.Icon=SystemIcons.Application;tray.Text="MinimalJoystick input bridge";tray.Visible=true;
             ContextMenuStrip menu=new ContextMenuStrip();menu.Items.Add("Show controls",null,delegate {Show();WindowState=FormWindowState.Normal;Activate();});
             menu.Items.Add("Exit window (bridge continues)",null,delegate {Close();});tray.ContextMenuStrip=menu;tray.DoubleClick+=delegate {Show();Activate();};
             FormClosed+=delegate {timer.Stop();bridge.Dispose();tray.Dispose();};
             try{if(File.Exists(Profile.DefaultPath))profile=Profile.Load(Profile.DefaultPath);}catch(Exception e){MessageBox.Show("Saved profile could not be loaded; defaults selected. "+e.Message);}
+            if(BridgeLink.Alive(bridge.Read())&&bridge.Read().BridgeVersion<3){try{Bridge.Restart(bridge);}catch(Exception e){MessageBox.Show("The older bridge must stop before physical USB can be used. "+e.Message);}}
+            if(!BridgeLink.Alive(bridge.Read())){try{bridge.ConfigureHardware(File.Exists(HardwareProfile.DefaultPath)?HardwareProfile.Load(HardwareProfile.DefaultPath):new HardwareProfile());}catch(Exception e){bridge.ConfigureHardware(new HardwareProfile());MessageBox.Show("Hardware USB settings could not be loaded; hardware mode is off. "+e.Message);}}
             bridge.Profile(profile);bridge.Command(3,new ControlsState(16384,0,0));Bridge.Start();
             timer.Interval=40;timer.Tick+=Tick;timer.Start();
         }
@@ -175,9 +178,12 @@ namespace MinimalJoystick {
             Snapshot output=bridge.Read();bool alive=BridgeLink.Alive(output);
             status.Text=!alive?"Bridge offline — use Restart bridge":output.Connected?"MinimalJoystick connected · independent background bridge":"Bridge running · driver unavailable";
             status.ForeColor=alive&&output.Connected?Accent:Color.FromArgb(246,192,105);
-            active.Text=output.Transport==1?"USB (simulated)":output.Transport==2?"Bluetooth (simulated)":"Disconnected / stale";
+            HardwareProfile hardware=bridge.ReadHardwareConfig();
+            rudder.Enabled=throttle.Enabled=usb.Enabled=ble.Enabled=freeze.Enabled=demo.Enabled=spring.Enabled=!hardware.Enabled;foreach(Button b in buttons)b.Enabled=!hardware.Enabled;
+            active.Text=output.Transport==3?"USB (physical)":hardware.Enabled?"USB hardware / waiting or fault":output.Transport==1?"USB (simulated)":output.Transport==2?"Bluetooth (simulated)":"Disconnected / stale";
             values.Text=String.Format("Raw R {0}  T {1}\nOutput R {2}  T {3} · Buttons {4}",rudder.Value,throttle.Value,output.Output.Rudder,output.Output.Throttle,output.Output.Buttons);
 
+            if(hardware.Enabled){HardwareSnapshot h=bridge.ReadHardware();values.Text=h.Frame==null?h.Status:String.Format("Raw angle {0} · ADC {1}\nOutput R {2} T {3} · Buttons {4}",h.Frame.Angle,h.Frame.Adc,output.Output.Rudder,output.Output.Throttle,output.Output.Buttons);}
             string transition=active.Text+" | "+status.Text;
             if(transition!=previous){log.AppendText(DateTime.Now.ToString("HH:mm:ss")+"  "+transition+Environment.NewLine);previous=transition;if(log.TextLength>12000)log.Text=log.Text.Substring(log.TextLength-6000);log.ScrollToCaret();}
         }
@@ -213,6 +219,8 @@ namespace MinimalJoystick {
             }
         }
         [STAThread] static int Main(string[] args) {
+            if(args.Length==2&&args[0]=="--usb-driver-test"){try{UsbTests.Driver(args[1]);return 0;}catch(Exception e){File.WriteAllText(args[1],e.ToString());return 1;}}
+            if(args.Length==2&&args[0]=="--usb-test"){try{UsbTests.Run(args[1]);return 0;}catch(Exception e){File.WriteAllText(args[1],e.ToString());return 1;}}
             if(args.Length==2&&args[0]=="--bridge-test"){try{Reliability.Integration(args[1]);return 0;}catch(Exception e){File.WriteAllText(args[1],e.ToString());return 1;}}
             if((args.Length==1&&args[0]=="--setup")||Path.GetFileNameWithoutExtension(Application.ExecutablePath)=="MinimalJoystickSetup"){Application.EnableVisualStyles();Application.Run(new Setup());return 0;}
             if(args.Length==1 && args[0]=="--bridge"){Bridge.Run();return 0;}

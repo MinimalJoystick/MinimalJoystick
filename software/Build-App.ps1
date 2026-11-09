@@ -26,6 +26,9 @@ if (Test-Path $signingRecord) {
     }
 }
 Copy-Item -LiteralPath $appBinary -Destination (Join-Path $output 'MinimalJoystickSetup.exe') -Force
+$compiledSources=[ordered]@{}
+Get-ChildItem $PSScriptRoot -Filter '*.cs' | Sort-Object Name | ForEach-Object { $compiledSources[$_.Name]=(Get-FileHash $_.FullName -Algorithm SHA256).Hash }
+[ordered]@{status='COMPILED; runtime acceptance is separate';source_sha256=$compiledSources;app_sha256=(Get-FileHash $appBinary -Algorithm SHA256).Hash} | ConvertTo-Json -Depth 5 | Set-Content (Join-Path $output 'app-build-sources.json') -Encoding UTF8
 if ($CompileOnly) { Write-Output 'Compiled and locally signed; runtime tests were explicitly skipped.'; return }
 $process = Start-Process "$output/MinimalJoystick.exe" -ArgumentList "--self-test `"$output/self-test.txt`"" -WindowStyle Hidden -Wait -PassThru
 if ($process.ExitCode) { throw 'Application self-test failed.' }

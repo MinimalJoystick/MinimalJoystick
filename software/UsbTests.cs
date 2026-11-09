@@ -1,0 +1,53 @@
+using System;
+using System.IO;
+namespace MinimalJoystick {
+    [System.Runtime.Serialization.DataContract] public sealed class UsbFixture {
+        [System.Runtime.Serialization.DataMember(Name="hex")] public string Hex;
+        [System.Runtime.Serialization.DataMember(Name="sha256")] public string Sha256;
+    }
+    public static class UsbTests {
+        static int checks;
+        static void Check(bool ok,string name){checks++;if(!ok)throw new Exception("USB test failed: "+name);}
+        static UsbFrame Frame(uint seq,uint ms,int angle,int adc,byte buttons){return new UsbFrame{Sequence=seq,Uptime=ms,Angle=(ushort)angle,Adc=(ushort)adc,Buttons=buttons,Flags=31,Magnet=32,Agc=100,Millivolts=4200,Soc256=25600};}
+        static HardwareProfile Profile(){return new HardwareProfile{Port="COM7",Enabled=true,Calibrated=true,Left=3755,Center=0,Right=341,ThrottleIdle=100,ThrottleFull=4000,Deadzone=0};}
+        static byte[] Packet(UsbFrame f){byte[] p=new byte[26];p[0]=77;p[1]=74;p[2]=1;p[3]=26;Array.Copy(BitConverter.GetBytes(f.Sequence),0,p,4,4);Array.Copy(BitConverter.GetBytes(f.Uptime),0,p,8,4);Array.Copy(BitConverter.GetBytes(f.Angle),0,p,12,2);Array.Copy(BitConverter.GetBytes(f.Adc),0,p,14,2);p[16]=f.Buttons;p[17]=f.Flags;p[18]=f.Magnet;p[19]=f.Agc;Array.Copy(BitConverter.GetBytes(f.Millivolts),0,p,20,2);Array.Copy(BitConverter.GetBytes(f.Soc256),0,p,22,2);Array.Copy(BitConverter.GetBytes(UsbDecoder.Crc(p,24)),0,p,24,2);return p;}
+        static void Invalid(HardwareProfile p,string reason){bool caught=false;try{p.Validate();}catch(InvalidDataException){caught=true;}Check(caught,reason);}
+        public static void Driver(string path){
+            using(var owner=new System.Threading.Mutex(false,BridgeLink.Name+"-owner")){
+                bool held;try{held=owner.WaitOne(0);}catch(System.Threading.AbandonedMutexException){held=true;}if(!held)throw new Exception("Stop the existing bridge before this driver test.");
+                try{using(var sink=new HidSink()){
+                    Check(sink.Open(),sink.Status);var decoder=new UsbDecoder();var input=new HardwareInput();input.Receive(Frame(0,0,0,100,0),0);var p=Profile();ushort throttle=0;
+                    try{for(int i=1;i<=12;i++){byte[] wire=Packet(Frame((uint)i,(uint)i*20,i%3==0?3755:i%3==1?0:341,i%2==0?100:4000,(byte)(i%16)));var frames=decoder.Feed(wire,wire.Length);input.Receive(frames[0],i*20);var expected=input.Select(i*20,p);throttle=expected.Throttle;Check(sink.Send(expected),sink.Status);bool matched=false;var clock=System.Diagnostics.Stopwatch.StartNew();while(clock.ElapsedMilliseconds<500){var actual=sink.ReadInput();if(actual.Rudder==expected.Rudder&&actual.Throttle==expected.Throttle&&actual.Buttons==expected.Buttons){matched=true;break;}System.Threading.Thread.Sleep(10);}Check(matched,"decoded USB controls roundtrip through existing HID "+i);}}
+                    finally{sink.Send(new ControlsState(16384,throttle,0));}
+                    File.WriteAllText(path,"PASS: 12 firmware-format packets decoded, calibrated and round-tripped through the existing single MinimalJoystick HID handle. No COM hardware or simulator exercised; no driver installed or replaced.\n");
+                }}finally{owner.ReleaseMutex();}
+            }
+        }
+        public static void Run(string path){checks=0;
+            Check(UsbDecoder.Crc(System.Text.Encoding.ASCII.GetBytes("123456789"),9)==0x29b1,"independent CRC vector");
+            UsbFixture saved;using(var file=File.OpenRead("software/tests/fixtures/firmware-mj1.json"))saved=(UsbFixture)new System.Runtime.Serialization.Json.DataContractJsonSerializer(typeof(UsbFixture)).ReadObject(file);
+            byte[] fixture=new byte[saved.Hex.Length/2];for(int i=0;i<fixture.Length;i++)fixture[i]=Convert.ToByte(saved.Hex.Substring(i*2,2),16);
+            using(var hash=System.Security.Cryptography.SHA256.Create())Check(BitConverter.ToString(hash.ComputeHash(fixture)).Replace("-","").ToLowerInvariant()==saved.Sha256,"firmware fixture hash");
+            if(File.Exists("firmware/build/protocol-fixture.bin"))Check(Convert.ToBase64String(fixture)==Convert.ToBase64String(File.ReadAllBytes("firmware/build/protocol-fixture.bin")),"frozen fixture matches current native encoder");var decoded=new UsbDecoder().Feed(fixture,fixture.Length);Check(decoded.Count==1&&decoded[0].Sequence==uint.MaxValue&&decoded[0].Uptime==123456&&decoded[0].Angle==4095&&decoded[0].Adc==2048&&decoded[0].Buttons==15,"actual firmware C++ encoder fixture");
+            byte[] packet=Packet(Frame(5,100,4090,100,15));
+            for(int split=0;split<=26;split++){var d=new UsbDecoder();byte[] a=new byte[split+3];a[0]=2;a[1]=77;a[2]=1;Array.Copy(packet,0,a,3,split);byte[] b=new byte[26-split];Array.Copy(packet,split,b,0,b.Length);Check(d.Feed(a,a.Length).Count+d.Feed(b,b.Length).Count==1,"noise/chunk split "+split);}
+            for(int i=0;i<26;i++)for(int bit=0;bit<8;bit++){byte[] bad=(byte[])packet.Clone();bad[i]^=(byte)(1<<bit);var d=new UsbDecoder();Check(d.Feed(bad,26).Count==0,"corruption "+i+"/"+bit);Check(d.Feed(packet,26).Count==1,"corruption resync");}
+            foreach(int n in new[]{0,1,2,3,4}){var f=Frame(5,100,100,100,0);if(n==0)f.Angle=4096;if(n==1)f.Adc=4096;if(n==2)f.Buttons=16;if(n==3)f.Flags=128;if(n==4)f.Soc256=25601;byte[] b=Packet(f);Check(new UsbDecoder().Feed(b,26).Count==0,"range validation "+n);}
+            var p=Profile();p.Validate();Check(p.Apply(Frame(1,20,3755,100,15)).Rudder==0,"left across circular wrap");Check(p.Apply(Frame(2,40,0,2050,0)).Rudder==16384,"center at zero");Check(p.Apply(Frame(3,60,341,4000,0)).Rudder==32767,"right endpoint");Check(p.Apply(Frame(4,80,340,0,0)).Throttle==0,"throttle clamp low");Check(p.Apply(Frame(5,100,340,4095,0)).Throttle==32767,"throttle clamp high");
+            p.Left=341;p.Right=3755;p.ThrottleIdle=4000;p.ThrottleFull=100;Check(p.Apply(Frame(1,20,341,4000,0)).Rudder==0,"reverse sensor mounting left");Check(p.Apply(Frame(1,20,3755,100,0)).Rudder==32767,"reverse sensor mounting right");Check(p.Apply(Frame(1,20,0,100,0)).Throttle==32767,"reverse throttle mounting");
+            p.InvertRudder=true;p.InvertThrottle=true;Check(p.Apply(Frame(1,20,341,4000,0)).Rudder==32767&&p.Apply(Frame(1,20,341,4000,0)).Throttle==32767,"user inversion");
+            p=Profile();p.Left=2048;Invalid(p,"ambiguous half turn");p=Profile();p.Right=1;Invalid(p,"too narrow travel");p=Profile();p.Right=3800;Invalid(p,"same side endpoints");p=Profile();p.Exponent=double.NaN;Invalid(p,"NaN curve");p=Profile();p.Port="COM7;bad";Invalid(p,"invalid explicit port");
+            p=Profile();var input=new HardwareInput();Check(input.Receive(Frame(1,20,341,4000,15),0),"first packet");Check(!input.Fresh(0),"single startup packet cannot arm controls");Check(input.Receive(Frame(2,40,341,4000,15),20),"live stream qualifies");Check(input.Select(270,p).Buttons==15,"freshness boundary");var stale=input.Select(271,p);Check(stale.Buttons==0&&stale.Rudder==16384&&stale.Throttle==32767,"timeout neutral/release/hold");
+            var faulty=Frame(3,60,341,100,15);faulty.Flags=8;input.Receive(faulty,280);Check(input.Select(280,p).Buttons==0&&input.Select(280,p).Throttle==32767,"sensor fault never jumps throttle");
+            input.BeginSession();Check(input.Receive(Frame(uint.MaxValue,0xfffffff0,341,100,0),0),"wrap start");Check(input.Receive(Frame(0,4,341,100,0),20),"sequence and uptime wrap");Check(!input.Receive(Frame(0,4,341,4000,15),21),"duplicate rejected");Check(!input.Receive(Frame(1,24,341,4000,15),40),"reset/replay fault stays latched");Check(input.Select(40,p).Buttons==0,"replay releases controls");input.BeginSession();Check(input.Receive(Frame(0,1,0,100,0),50),"explicit new session accepts reset");
+            p=Profile();p.Calibrated=false;input.Receive(Frame(1,21,341,4000,15),70);Check(input.Select(70,p).Buttons==0,"uncalibrated input gated");
+            var delayed=new HardwareInput();delayed.Receive(Frame(1,20,0,100,0),0);Check(!delayed.Receive(Frame(2,40,341,4000,15),1000)&&delayed.Select(1000,Profile()).Buttons==0,"queued old packet cannot become fresh after a long gap");
+            string temp=Path.Combine(Path.GetTempPath(),"mj-usb-test-"+Guid.NewGuid().ToString("N")+".json");try{p=Profile();p.Save(temp);p.Center=4090;p.Left=3749;p.Right=335;p.Save(temp);var loaded=HardwareProfile.Load(temp);Check(loaded.Center==4090&&loaded.Port=="COM7"&&File.Exists(temp+".bak"),"atomic profile persistence and backup");}finally{if(File.Exists(temp))File.Delete(temp);if(File.Exists(temp+".bak"))File.Delete(temp+".bak");}
+            string session="Local\\MinimalJoystickTest-"+Guid.NewGuid().ToString("N");
+            using(var writer=new BridgeLink(session))using(var reader=new BridgeLink(session)){p=Profile();writer.ConfigureHardware(p);var stored=reader.ReadHardwareConfig();Check(stored.Enabled&&stored.Calibrated&&stored.Left==3755&&stored.Port=="COM7"&&stored.Generation==1,"atomic hardware configuration IPC");writer.ConfigureHardware(p);Check(reader.ReadHardwareConfig().Generation==2,"reconnect generation");writer.PublishHardware(Frame(1,20,4090,1234,5),"USB test",true,200);var snapshot=reader.ReadHardware();Check(snapshot.Frame.Angle==4090&&snapshot.Frame.Adc==1234&&snapshot.Status=="USB test"&&snapshot.Fresh,"raw diagnostics IPC");System.Threading.Thread.Sleep(70);Check(!reader.ReadHardware().Fresh,"capture freshness uses sample age");writer.PublishHardware(null,"off",false);Check(!reader.ReadHardware().Fresh,"no stale capture after disconnect");writer.Publish(new ControlsState(16384,0,0),false,0,1);Check(reader.Read().BridgeVersion==3,"bridge USB capability bound to current heartbeat");}
+            // Feed bytes through the exact decoder, calibration and failure policy used by the bridge.
+            p=Profile();input=new HardwareInput();input.Receive(Frame(0,0,0,100,0),0);var stream=new UsbDecoder();for(int i=1;i<=1000;i++){byte[] b=Packet(Frame((uint)i,(uint)i*20,(i%3==0?3755:i%3==1?0:341),i%2==0?100:4000,(byte)(i%16)));var frames=stream.Feed(b,26);Check(frames.Count==1&&input.Receive(frames[0],i*20),"recorded stream ingestion");var state=input.Select(i*20,p);Check(state.Buttons==i%16&&state.Throttle==(i%2==0?0:32767),"recorded stream mapped report");}Check(input.Select(20251,p).Buttons==0,"recorded stream stops safely");
+            File.WriteAllText(path,"PASS: "+checks+" checks; actual firmware fixture, CRC/framing/corruption, circular calibration/reversed mounting, profiles, freshness/fault/reset/replay and 1000 decoded-to-calibrated controller states. No COM device, HID driver or simulator exercised.\n");
+        }
+    }
+}

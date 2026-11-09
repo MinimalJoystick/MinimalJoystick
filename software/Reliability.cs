@@ -5,7 +5,7 @@ namespace MinimalJoystick {
         public static void Integration(string path){
             using(BridgeLink link=new BridgeLink()){
                 Check(!BridgeLink.Alive(link.Read()),"Stop the existing bridge before integration tests");
-                link.Profile(new Profile{Deadzone=0});link.Command(3,new ControlsState(12000,22000,15));
+                link.ConfigureHardware(new HardwareProfile());link.Profile(new Profile{Deadzone=0});link.Command(3,new ControlsState(12000,22000,15));
                 var process=Bridge.Start();
                 try {
                     Wait(delegate{return BridgeLink.Alive(link.Read())&&link.Read().Connected;},"bridge connection");

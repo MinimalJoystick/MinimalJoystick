@@ -1,0 +1,5 @@
+{
+  "hex": "4d4a011affffffff40e20100ff0f00080f1f206468100064ea3e",
+  "sha256": "9083f5641ae4d9da736910125007bb7d402c04489c823608637e04b5ac440e61",
+  "provenance": "Actual Rev G firmware Protocol.h encoder output from protocol_test.cpp; diagnostic test data only, no firmware code"
+}

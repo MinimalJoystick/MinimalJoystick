@@ -1,6 +1,11 @@
 name: Desktop source verification (unsigned)
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - 'software/**'
+      - '.github/workflows/desktop-source-build.yml'
+      - '.gitattributes'
   pull_request:
     paths:
       - 'software/**'
@@ -50,9 +55,11 @@ jobs:
       - name: Run model tests (no driver installed)
         shell: pwsh
         run: |
-          foreach ($test in @('self','reliability')) {
+          foreach ($test in @('self','reliability','usb')) {
             $report = Join-Path (Resolve-Path evidence) "$test-test.txt"
-            $process = Start-Process ./unsigned-a/MinimalJoystick.exe -ArgumentList "--$test-test `"$report`"" -WindowStyle Hidden -Wait -PassThru
+            $process = Start-Process ./unsigned-a/MinimalJoystick.exe -ArgumentList "--$test-test `"$report`"" -WindowStyle Hidden -PassThru
+            if (!$process.WaitForExit(120000)) { Stop-Process -Id $process.Id; throw "$test timed out" }
+            $process.Refresh()
             if ($process.ExitCode -or !(Test-Path $report)) { throw "$test failed or was blocked" }
             if (!(Get-Content $report -Raw).StartsWith('PASS:')) { throw 'Invalid test report' }
           }

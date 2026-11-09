@@ -9,6 +9,9 @@ class PublicationTests(unittest.TestCase):
     def test_export_boundaries(self):
         files=module.inventory()
         self.assertIn('AssemblyInfo.cs',files)
+        self.assertIn('tools/UsbTestMain.cs',files)
+        self.assertIn('tests/fixtures/firmware-mj1.json',files)
+        self.assertIn('HARDWARE-USB.md',files)
         self.assertIn('LICENSE',files)
         self.assertIn('LICENSING.md',files)
         self.assertNotIn('publication/LICENSE-MIT.proposed.txt',files)

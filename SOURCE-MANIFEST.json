@@ -1,56 +1,20 @@
 [
   {
-    "path": ".gitattributes",
-    "bytes": 82,
-    "sha256": "385fbb9b892bff2d87015b971267be89e0803fbcb121bcde8266d4e76f3f2ad2",
-    "source_license": "MIT"
-  },
-  {
-    "path": ".github/workflows/desktop-source-build.yml",
-    "bytes": 3291,
-    "sha256": "37be3e69adbd34b261a2e9f8545142736500afe69b9af2a027bc572635b0ca68",
-    "source_license": "MIT"
-  },
-  {
-    "path": "LICENSE",
-    "bytes": 1106,
-    "sha256": "db376e598a161f8d6acf694cedc0a258fba2b71d65ebf40e698b3ba2a0015808",
-    "source_license": "MIT"
-  },
-  {
-    "path": "LICENSING.md",
-    "bytes": 690,
-    "sha256": "09f00c17b4c869fd897fd3b7f8b68d9e574e575ba50a0f02d61ead9e1f5620f7",
-    "source_license": "MIT"
-  },
-  {
-    "path": "PROTOTYPE-STATUS.md",
-    "bytes": 599,
-    "sha256": "29c3da7bca8935bf9640520a06d1cc923fff0cb3a9035a266b52323d8ea7037a",
-    "source_license": "MIT"
-  },
-  {
-    "path": "README.md",
-    "bytes": 2486,
-    "sha256": "446cbb0941302951e9a969af404afa2ceb79ba693f89edba1a64ebfd3040173a",
-    "source_license": "MIT"
-  },
-  {
     "path": "software/AssemblyInfo.cs",
-    "bytes": 361,
-    "sha256": "8a587d411c12024aeb0adf80026aa9935ee641857fe12b6529595438881db35e",
+    "bytes": 368,
+    "sha256": "6fc26a442576ba70033cf6d3e76508d236bab333b06c0aeb000f4b361491bf6b",
     "source_license": "MIT"
   },
   {
     "path": "software/Bridge.cs",
-    "bytes": 5931,
-    "sha256": "910d14f195c94623ed9c4c202f4b3b91e4d3b0aa45b37861f486ee6e488cb021",
+    "bytes": 11235,
+    "sha256": "e9ad3adccea234e24f35c8b94acee42c4ba4e8ea7c2858f846e2f463b26987c6",
     "source_license": "MIT"
   },
   {
     "path": "software/Build-App.ps1",
-    "bytes": 2363,
-    "sha256": "b3448cc903a83695375d31af65db06a67a79b2a08e50181128ad3216301b9748",
+    "bytes": 2805,
+    "sha256": "9a1054bdedd9f93bc421a8a35708f1e9798b7593e2a14819d6d5a32ded3dbb5f",
     "source_license": "MIT"
   },
   {
@@ -78,6 +42,24 @@
     "source_license": "MIT"
   },
   {
+    "path": "software/HARDWARE-USB.md",
+    "bytes": 5977,
+    "sha256": "428d59a7cc034cec6ef1a61e364176fc840bf09e163127bf1cc21d5e72a6014f",
+    "source_license": "MIT"
+  },
+  {
+    "path": "software/HardwareUsb.cs",
+    "bytes": 8196,
+    "sha256": "9c7567c15d3691b643aeeae47b6982a84d1aa7b2f434c726e6a872c54cf66510",
+    "source_license": "MIT"
+  },
+  {
+    "path": "software/HardwareUsbEditor.cs",
+    "bytes": 6623,
+    "sha256": "4fd56a677a7af1b180e66f7ef6e24c70ace5505e727c5f97469dde5cb3710903",
+    "source_license": "MIT"
+  },
+  {
     "path": "software/Install-LocalPrototype.ps1",
     "bytes": 2361,
     "sha256": "89c579fafa7ce334d8677dc07cb68163ccaf2f7170afc557da18ddc0e4ebe0af",
@@ -97,8 +79,8 @@
   },
   {
     "path": "software/MinimalJoystick.cs",
-    "bytes": 19667,
-    "sha256": "dbe8efb8e5031b559717664c3286168ac1b660e85565f9cd0578acb06557466c",
+    "bytes": 21277,
+    "sha256": "3591f0b22cd380683a34c43ae44928a778b423444d94a23ffa7409d19e5ef651",
     "source_license": "MIT"
   },
   {
@@ -109,8 +91,8 @@
   },
   {
     "path": "software/Reliability.cs",
-    "bytes": 4869,
-    "sha256": "fd22f3d2c9234d6b0faf24827776f97f8c62ab33c63647f1ba59e4d3c9bb2799",
+    "bytes": 4915,
+    "sha256": "354805d4c4e34c28f1089e0f2e326748e0ae6c1dba1d80f79752335e49dfb40e",
     "source_license": "MIT"
   },
   {
@@ -132,9 +114,27 @@
     "source_license": "MIT"
   },
   {
+    "path": "software/Test-UsbBridge.ps1",
+    "bytes": 2152,
+    "sha256": "538e47f0d0ed15b45d824b390aa51f788a5c6627d1a1cf986ee72ca4d4dcedf9",
+    "source_license": "MIT"
+  },
+  {
     "path": "software/Uninstall-LocalPrototype.ps1",
     "bytes": 1463,
     "sha256": "02e1c2f3e82f3eae3abf37291703d99562f10500474477655c8bcd4d094ebae4",
+    "source_license": "MIT"
+  },
+  {
+    "path": "software/UsbTests.cs",
+    "bytes": 10681,
+    "sha256": "b82520131add908a7c185db95fac0e048119b84e4a0b9dd53cbc32eade511c3c",
+    "source_license": "MIT"
+  },
+  {
+    "path": "software/VALIDATION-0.3.md",
+    "bytes": 2854,
+    "sha256": "4cd384186752aecd98b3b0498dc8a1bfdc23b9d32e8132473253378aac005cca",
     "source_license": "MIT"
   },
   {
@@ -181,8 +181,8 @@
   },
   {
     "path": "software/publication/AUDIT.md",
-    "bytes": 4564,
-    "sha256": "4f7c905e0d497865628436fec966467df9a94f55186466a5b4563a8ed85d59ba",
+    "bytes": 4497,
+    "sha256": "7d23ffdd7bfdd2fbca031c6390c36095cd2a147b69da9aee377bd5c74fefd178",
     "source_license": "MIT"
   },
   {
@@ -193,8 +193,8 @@
   },
   {
     "path": "software/publication/BUILD.md",
-    "bytes": 3488,
-    "sha256": "4cae4e2f125b2d8104d5af5e9ce41a7c70bc7ba3913f4d5f75b5c058787c4ede",
+    "bytes": 3441,
+    "sha256": "b0b583163e391ae964d404f673d1231ee71c51c4e01da0d7fadec4948f5b480e",
     "source_license": "MIT"
   },
   {
@@ -205,14 +205,14 @@
   },
   {
     "path": "software/publication/PUBLIC-README.md",
-    "bytes": 2486,
-    "sha256": "446cbb0941302951e9a969af404afa2ceb79ba693f89edba1a64ebfd3040173a",
+    "bytes": 2570,
+    "sha256": "d1401b4186c26f25524363d8081ef568ff01b62ab1ca10ce3e787c2e6ad70475",
     "source_license": "MIT"
   },
   {
     "path": "software/publication/README.md",
-    "bytes": 1307,
-    "sha256": "ac23faca3f938731dfbb9b0445f83417f2369a8fe202691659fb238ba79e4971",
+    "bytes": 1267,
+    "sha256": "b514ddc2a535ad907e49817594bb83cb118dafbcb69e48b2d730f40ba8a5903b",
     "source_license": "MIT"
   },
   {
@@ -223,8 +223,8 @@
   },
   {
     "path": "software/publication/SIGNPATH-APPLICATION-DRAFT.md",
-    "bytes": 3141,
-    "sha256": "417a2287ef465fec16f5c2911797158cf4e87f45f885c6a74cc661ecd9519d9f",
+    "bytes": 2949,
+    "sha256": "f38503f6bc2f95b19f496b5ca0cf7d8562476210efdd68eb1dfd0abd0281426a",
     "source_license": "MIT"
   },
   {
@@ -270,6 +270,12 @@
     "source_license": "MIT"
   },
   {
+    "path": "software/tests/fixtures/firmware-mj1.json",
+    "bytes": 288,
+    "sha256": "c25ace70256ff3d287d5c46b7973aa878ba2541c03e9ec5a886b07b78ea568b6",
+    "source_license": "MIT"
+  },
+  {
     "path": "software/tests/test_contract.py",
     "bytes": 2676,
     "sha256": "003ddd961851296c4367ad5972f96e129cf4c2d31cb9f4f83fa88e3c73d9b6ea",
@@ -277,8 +283,8 @@
   },
   {
     "path": "software/tests/test_publication.py",
-    "bytes": 1199,
-    "sha256": "03d627925464e9c2fd2b309b2bf1db32c074e5c5eaf199703976bbb6dbe96add",
+    "bytes": 1388,
+    "sha256": "217923e936aeeec9a3d7293041470e1d0297019a5dbf36167215ad4b4a289c13",
     "source_license": "MIT"
   },
   {
@@ -306,6 +312,12 @@
     "source_license": "MIT"
   },
   {
+    "path": "software/tools/UsbTestMain.cs",
+    "bytes": 361,
+    "sha256": "b19af26bafa1e95275f5c2da8f8da9efb4776870347188954e01163f728005c1",
+    "source_license": "MIT"
+  },
+  {
     "path": "software/tools/build_support_art.py",
     "bytes": 1397,
     "sha256": "c710347ec1bd397fef1411fecda35cb364d2b8ac7e3c05921adf06e327188889",
@@ -319,8 +331,8 @@
   },
   {
     "path": "software/tools/prepare_public_source.py",
-    "bytes": 4872,
-    "sha256": "f12a247fef2ac87018041be9f5424eac806b38ce2e8fcaf53b43114b67f3b757",
+    "bytes": 5116,
+    "sha256": "420678be8b50d80c90e72648b2c536a36ad661f60d545b4d34d0c8e0cc409e35",
     "source_license": "MIT"
   },
   {
@@ -454,5 +466,41 @@
     "bytes": 3746,
     "sha256": "fbcdc12de0b357fbd4a9c2546286d5278d320c772bc138ac39e91229b3100104",
     "source_license": "MS-PL"
+  },
+  {
+    "path": "README.md",
+    "bytes": 2570,
+    "sha256": "d1401b4186c26f25524363d8081ef568ff01b62ab1ca10ce3e787c2e6ad70475",
+    "source_license": "MIT"
+  },
+  {
+    "path": "LICENSE",
+    "bytes": 1106,
+    "sha256": "db376e598a161f8d6acf694cedc0a258fba2b71d65ebf40e698b3ba2a0015808",
+    "source_license": "MIT"
+  },
+  {
+    "path": "LICENSING.md",
+    "bytes": 690,
+    "sha256": "09f00c17b4c869fd897fd3b7f8b68d9e574e575ba50a0f02d61ead9e1f5620f7",
+    "source_license": "MIT"
+  },
+  {
+    "path": ".github/workflows/desktop-source-build.yml",
+    "bytes": 3546,
+    "sha256": "0a1e1e5983fb8581bb78b55518992e94fceb4e7860979554ce5d6432137b584f",
+    "source_license": "MIT"
+  },
+  {
+    "path": ".gitattributes",
+    "bytes": 68,
+    "sha256": "34b1fa1f7375ce454dafd5154037f6633b38522c1919eff0f8aed3083cc09164",
+    "source_license": "MIT"
+  },
+  {
+    "path": "PROTOTYPE-STATUS.md",
+    "bytes": 215,
+    "sha256": "4268da8f3082ef1d2151a4a3b71bb1ab168de04b6e5b6860c7cf4f719ca8d501",
+    "source_license": "MIT"
   }
 ]

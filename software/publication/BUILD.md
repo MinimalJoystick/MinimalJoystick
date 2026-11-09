@@ -1,6 +1,6 @@
-> Historical preparation record for the initial simulated-transport snapshot. Status statements below describe preparation before publication and are retained as evidence, not current repository status. The public repository is https://github.com/MinimalJoystick/MinimalJoystick. An eligibility inquiry was submitted on 2026-11-09; the formal Foundation application remains unsent and acceptance is pending. See README.md for current publication status.
-
 # Build and reproducibility scope
+
+Current repository: https://github.com/MinimalJoystick/MinimalJoystick. Initial hosted verification passed on commit 6b58e255f368e4adcf67a7017f6c24eee06c4a22. USB 0.3 and subsequent updates require their own passing hosted run. The workflow now runs self, reliability and USB model checks with timeouts. No driver is installed in CI. Earlier preparation-status statements below are historical, not the current publication state.
 
 `Build-OpenSource.ps1` builds app/setup/DeviceSetup/Windows capability probe with Microsoft.Net.Compilers.Toolset **4.14.0**, deterministic output, stable source path mapping, fixed assembly version and no code signing. Extract the pinned NuGet package and pass its directory as `-CompilerRoot`; use a new `-OutputDirectory` every time. Windows .NET Framework reference assemblies must be the same version for byte comparisons. The normal local Build-App.ps1 remains the prototype build and may use the locally approved signing identity.
 

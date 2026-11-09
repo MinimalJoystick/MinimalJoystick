@@ -1,6 +1,6 @@
-> Historical preparation record for the initial simulated-transport snapshot. Status statements below describe preparation before publication and are retained as evidence, not current repository status. The public repository is https://github.com/MinimalJoystick/MinimalJoystick. An eligibility inquiry was submitted on 2026-11-09; the formal Foundation application remains unsent and acceptance is pending. See README.md for current publication status.
-
 # Open-source publication audit — 2026-11-09
+
+Historical preparation audit: the repository has since been published at https://github.com/MinimalJoystick/MinimalJoystick and its initial hosted unsigned build passed. An eligibility inquiry was submitted to SignPath; no formal Foundation application, public signing approval or signed installer release is claimed. Read preparation-status statements below in that historical context.
 
 Scope: desktop software and its custom UMDF2 virtual joystick. No publication or signing application submitted. Owner approved MIT originals/MS-PL driver on 2026-11-09. No project-wide rights inferred for firmware, CAD, purchased models, website or reference documents.
 

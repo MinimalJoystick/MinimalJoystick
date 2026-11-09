@@ -4,11 +4,11 @@ Windows software prototype for a flight-controller device, designed to expose on
 
 ## Prototype status
 
-Current desktop sources include simulated transports, rudder/throttle/button controls, an independent bridge process, profile/calibration controls and a custom UMDF2 driver. Actual USB/Bluetooth transport integration, simulator acceptance and public installer qualification remain pending. Windows 11 x64 is the initial driver target. No production firmware or hardware purchase is required to inspect/build these desktop sources.
+Version 0.3 includes USB packet reception, separate hardware calibration, rudder/throttle/button controls, an independent bridge process and a custom UMDF2 driver. Bluetooth remains simulated. Physical USB acceptance, real BLE, simulator acceptance and public installer qualification remain pending. Windows 11 x64 is the initial driver target. See `software/HARDWARE-USB.md` and `software/VALIDATION-0.3.md` for measured scope.
 
 ## Build and test
 
-See `software/publication/BUILD.md`. The read-only GitHub workflow builds the unsigned app/helpers twice, compares hashes, runs model tests and uploads clearly marked CI artifacts. It neither signs nor installs the driver. Its first hosted run is pending. Native driver binary reproducibility and clean-Windows acceptance are separate gates.
+See `software/publication/BUILD.md`. The read-only GitHub workflow builds the unsigned app/helpers twice, compares hashes, runs model/USB tests and uploads clearly marked CI artifacts. It neither signs nor installs the driver. The initial simulated-transport snapshot passed hosted verification; newer commits require their own passing runs. Native driver binary reproducibility and clean-Windows acceptance are separate gates.
 
 `software/Install-LocalPrototype.ps1` and the current setup screen are developer tools that import a local test certificate. They are not a public-release installer. Do not disable Windows protections or install a developer root to run an unsigned public download.
 
