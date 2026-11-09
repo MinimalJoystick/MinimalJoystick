@@ -43,6 +43,8 @@ Two progressing samples across host polls are required to qualify each link. USB
 
 Freshness uses host monotonic time with a 250 ms limit, independently of Windows connection status. Duplicate packets do not refresh it. Forward modular sequence/uptime wrap is accepted; replay/reset, a nonce change or queued device time falling more than 250 ms behind host progress latches that channel invalid until a new handshake. Disconnect releases that link immediately. A returning USB link must qualify before reclaiming priority. Never fall back to simulation from a physical session. Keep the existing independent HID watchdog.
 
+A successful handshake for a new boot nonce invalidates the other link's old boot immediately, even if queued packets from that link would otherwise appear fresh. The new link still needs two progressing samples before gameplay can resume.
+
 Firmware follow-up: keep the sensor rail active during BLE gameplay, implement battery-safe idle/sleep/wake, retain bond/device identity across firmware updates and bound flash writes. Existing bench firmware powers sensors only on USB VBUS and is not qualified for battery BLE operation. Radio, charging/current draw, antenna placement, actual unplug handover and long-duration battery tests remain hardware gates. Firmware update transport is separate; do not add wireless DFU to the first gameplay milestone.
 
 ## Acceptance sequence

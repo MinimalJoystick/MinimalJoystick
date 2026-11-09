@@ -7,8 +7,8 @@
   },
   {
     "path": "software/BLUETOOTH-ARCHITECTURE.md",
-    "bytes": 7395,
-    "sha256": "4ea56c99e6c20a82481a216c1c66430fbf9accdeabd8c26090ef415d21318182",
+    "bytes": 7636,
+    "sha256": "ba9c1c9a6c6c6f54dcb7c2efa637dea2229b835dcdf75f2e5cb50e5086166225",
     "source_license": "MIT"
   },
   {
@@ -133,8 +133,8 @@
   },
   {
     "path": "software/TransportContract.cs",
-    "bytes": 8111,
-    "sha256": "8b75bd70d5c22e4897d3c6a1ba49d0e282670772e88bf8d23c4dd11854f8a349",
+    "bytes": 8971,
+    "sha256": "26d6ef6aa1a966a7faa9cafe8da6f9c184c81508b329ac9965ef45ed16e662be",
     "source_license": "MIT"
   },
   {
@@ -157,8 +157,8 @@
   },
   {
     "path": "software/VALIDATION-0.4.md",
-    "bytes": 2279,
-    "sha256": "bc3b58c00b6c6c29345de95ec508642e55dcaa9eaf42b4f3b3dde042c2783493",
+    "bytes": 3962,
+    "sha256": "1cf595a64bdf1d094895938b93e5137ed4ae42cbdd6ff70338734f19824ddba9",
     "source_license": "MIT"
   },
   {

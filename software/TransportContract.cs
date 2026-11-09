@@ -32,7 +32,10 @@ namespace MinimalJoystick {
         Channel Get(PhysicalTransport t){if(t==PhysicalTransport.Usb)return usb;if(t==PhysicalTransport.Bluetooth)return ble;throw new ArgumentOutOfRangeException("transport");}
         public void BeginSession(PhysicalTransport t,Guid identity,uint session){
             Channel c=Get(t);c.Bound=false;c.Have=false;c.Qualified=false;c.Faulted=false;c.Valid=false;
-            if(identity!=device||session==0)throw new InvalidDataException("Physical device/session does not match the selected joystick.");c.Session=session;c.Bound=true;
+            if(identity!=device||session==0)throw new InvalidDataException("Physical device/session does not match the selected joystick.");
+            Channel other=t==PhysicalTransport.Usb?ble:usb;
+            if(other.Bound&&other.Session!=session){other.Bound=false;other.Qualified=false;other.Valid=false;}
+            c.Session=session;c.Bound=true;
         }
         public void Disconnect(PhysicalTransport t){Channel c=Get(t);c.Bound=false;c.Qualified=false;c.Valid=false;}
         public bool Receive(PhysicalTransport t,MotionFrame frame,ControlsState calibrated,long now){
@@ -84,6 +87,10 @@ namespace MinimalJoystick {
             mux.BeginSession(PhysicalTransport.Bluetooth,id,7);mux.Receive(PhysicalTransport.Bluetooth,Frame(1,20),desired,0);
             Check(!mux.Receive(PhysicalTransport.Bluetooth,Frame(2,40),desired,500),"backlog refused");Check(mux.Select(500).Buttons==0,"backlog cannot arm");
             mux.BeginSession(PhysicalTransport.Bluetooth,id,7);var other=Frame(3,60);other.Session=8;Check(!mux.Receive(PhysicalTransport.Bluetooth,other,desired,520),"new boot needs handshake");
+            mux.BeginSession(PhysicalTransport.Usb,id,7);mux.Receive(PhysicalTransport.Usb,Frame(0,1),desired,600);mux.Receive(PhysicalTransport.Usb,Frame(1,21),desired,620);
+            mux.BeginSession(PhysicalTransport.Bluetooth,id,8);Check(mux.Select(621).Buttons==0,"new boot on BLE invalidates queued old USB session");
+            var reboot1=Frame(0,1);reboot1.Session=8;var reboot2=Frame(1,21);reboot2.Session=8;mux.Receive(PhysicalTransport.Bluetooth,reboot1,desired,622);mux.Receive(PhysicalTransport.Bluetooth,reboot2,desired,642);
+            Check(mux.Select(642).Buttons==3&&mux.Active=="Bluetooth","new boot requalifies without old USB reclaiming priority");
             File.WriteAllText(path,"PASS: "+checks+" protocol/transport checks; 20-byte frames, corruption rejection, device binding, wrap, duplicates, backlog and 10000 modeled handovers. No radio, COM, driver or simulator used.\n");
         }
     }
