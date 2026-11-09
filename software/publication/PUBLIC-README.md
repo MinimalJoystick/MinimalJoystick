@@ -4,7 +4,7 @@ Windows software prototype for a flight-controller device, designed to expose on
 
 ## Prototype status
 
-Version 0.3 includes USB packet reception, separate hardware calibration, rudder/throttle/button controls, an independent bridge process and a custom UMDF2 driver. Bluetooth remains simulated. Physical USB acceptance, real BLE, simulator acceptance and public installer qualification remain pending. Windows 11 x64 is the initial driver target. See `software/HARDWARE-USB.md` and `software/VALIDATION-0.3.md` for measured scope.
+Version 0.4 adds a desktop dashboard, guided USB calibration, profile backup restore and a modeled Bluetooth/USB transport-v2 contract to the 0.3 USB bridge. Real Bluetooth remains unimplemented. Physical USB acceptance, real BLE, simulator acceptance and public installer qualification remain pending. Windows 11 x64 is the initial driver target. See `software/HARDWARE-USB.md`, `software/BLUETOOTH-ARCHITECTURE.md` and the validation records for measured scope.
 
 ## Build and test
 

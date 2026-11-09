@@ -2,7 +2,13 @@
   {
     "path": "software/AssemblyInfo.cs",
     "bytes": 368,
-    "sha256": "6fc26a442576ba70033cf6d3e76508d236bab333b06c0aeb000f4b361491bf6b",
+    "sha256": "a65c90dd06cd870af47536bb27b2813bfacafc26ba4b602698fd36d36472c391",
+    "source_license": "MIT"
+  },
+  {
+    "path": "software/BLUETOOTH-ARCHITECTURE.md",
+    "bytes": 7395,
+    "sha256": "4ea56c99e6c20a82481a216c1c66430fbf9accdeabd8c26090ef415d21318182",
     "source_license": "MIT"
   },
   {
@@ -42,6 +48,12 @@
     "source_license": "MIT"
   },
   {
+    "path": "software/DesktopDashboard.cs",
+    "bytes": 23601,
+    "sha256": "cef65bf4af392a58292efdf0976e569739bf02bda04212f4ce16f1773f01d4dc",
+    "source_license": "MIT"
+  },
+  {
     "path": "software/HARDWARE-USB.md",
     "bytes": 5977,
     "sha256": "428d59a7cc034cec6ef1a61e364176fc840bf09e163127bf1cc21d5e72a6014f",
@@ -55,8 +67,8 @@
   },
   {
     "path": "software/HardwareUsbEditor.cs",
-    "bytes": 6623,
-    "sha256": "4fd56a677a7af1b180e66f7ef6e24c70ace5505e727c5f97469dde5cb3710903",
+    "bytes": 8078,
+    "sha256": "801d1ecbcc8e5a98ddb7f05660efc4af329e6da98ff99b2a43f4e8ee1a11fd0f",
     "source_license": "MIT"
   },
   {
@@ -79,8 +91,8 @@
   },
   {
     "path": "software/MinimalJoystick.cs",
-    "bytes": 21277,
-    "sha256": "3591f0b22cd380683a34c43ae44928a778b423444d94a23ffa7409d19e5ef651",
+    "bytes": 12667,
+    "sha256": "1aec23a558deb60f493b27379e1b1a4a792eb2676139a351bf132da8e5bdc19b",
     "source_license": "MIT"
   },
   {
@@ -120,6 +132,12 @@
     "source_license": "MIT"
   },
   {
+    "path": "software/TransportContract.cs",
+    "bytes": 8111,
+    "sha256": "8b75bd70d5c22e4897d3c6a1ba49d0e282670772e88bf8d23c4dd11854f8a349",
+    "source_license": "MIT"
+  },
+  {
     "path": "software/Uninstall-LocalPrototype.ps1",
     "bytes": 1463,
     "sha256": "02e1c2f3e82f3eae3abf37291703d99562f10500474477655c8bcd4d094ebae4",
@@ -135,6 +153,12 @@
     "path": "software/VALIDATION-0.3.md",
     "bytes": 2854,
     "sha256": "4cd384186752aecd98b3b0498dc8a1bfdc23b9d32e8132473253378aac005cca",
+    "source_license": "MIT"
+  },
+  {
+    "path": "software/VALIDATION-0.4.md",
+    "bytes": 2034,
+    "sha256": "973a2f0dac7063cbd3724eb0e6680e3c45469518b8408f73d824dffe416bdc3a",
     "source_license": "MIT"
   },
   {
@@ -205,8 +229,8 @@
   },
   {
     "path": "software/publication/PUBLIC-README.md",
-    "bytes": 2570,
-    "sha256": "d1401b4186c26f25524363d8081ef568ff01b62ab1ca10ce3e787c2e6ad70475",
+    "bytes": 2605,
+    "sha256": "a65e635e998bdeb282dbce330d121ba6d267a33b4bcbf9415bac6f71752154db",
     "source_license": "MIT"
   },
   {
@@ -331,8 +355,8 @@
   },
   {
     "path": "software/tools/prepare_public_source.py",
-    "bytes": 5116,
-    "sha256": "420678be8b50d80c90e72648b2c536a36ad661f60d545b4d34d0c8e0cc409e35",
+    "bytes": 5164,
+    "sha256": "dfbcf3c9d4c2ff13d1335c913e3549eaf86dca36f400059a1067bc7d2d111e59",
     "source_license": "MIT"
   },
   {
@@ -469,8 +493,8 @@
   },
   {
     "path": "README.md",
-    "bytes": 2570,
-    "sha256": "d1401b4186c26f25524363d8081ef568ff01b62ab1ca10ce3e787c2e6ad70475",
+    "bytes": 2605,
+    "sha256": "a65e635e998bdeb282dbce330d121ba6d267a33b4bcbf9415bac6f71752154db",
     "source_license": "MIT"
   },
   {
@@ -487,8 +511,8 @@
   },
   {
     "path": ".github/workflows/desktop-source-build.yml",
-    "bytes": 3546,
-    "sha256": "0a1e1e5983fb8581bb78b55518992e94fceb4e7860979554ce5d6432137b584f",
+    "bytes": 4102,
+    "sha256": "509423eb722d8855f669ffbcbe88f73c0f8c8a82f96cbe3623c054d866a5eedd",
     "source_license": "MIT"
   },
   {

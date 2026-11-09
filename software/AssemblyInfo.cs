@@ -3,5 +3,5 @@ using System.Reflection;
 [assembly: AssemblyProduct("MinimalJoystick")]
 [assembly: AssemblyCompany("MinimalJoystick contributors")]
 [assembly: AssemblyCopyright("Copyright 2026 MinimalJoystick contributors; see third-party notices")]
-[assembly: AssemblyVersion("0.3.0.0")]
-[assembly: AssemblyFileVersion("0.3.0.0")]
+[assembly: AssemblyVersion("0.4.0.0")]
+[assembly: AssemblyFileVersion("0.4.0.0")]

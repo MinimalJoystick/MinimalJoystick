@@ -55,7 +55,7 @@ jobs:
       - name: Run model tests (no driver installed)
         shell: pwsh
         run: |
-          foreach ($test in @('self','reliability','usb')) {
+          foreach ($test in @('self','reliability','usb','transport')) {
             $report = Join-Path (Resolve-Path evidence) "$test-test.txt"
             $process = Start-Process ./unsigned-a/MinimalJoystick.exe -ArgumentList "--$test-test `"$report`"" -WindowStyle Hidden -PassThru
             if (!$process.WaitForExit(120000)) { Stop-Process -Id $process.Id; throw "$test timed out" }
@@ -63,6 +63,14 @@ jobs:
             if ($process.ExitCode -or !(Test-Path $report)) { throw "$test failed or was blocked" }
             if (!(Get-Content $report -Raw).StartsWith('PASS:')) { throw 'Invalid test report' }
           }
+      - name: Render actual WinForms design previews (no devices)
+        shell: pwsh
+        run: |
+          $preview = Join-Path (Resolve-Path evidence) 'ui'
+          $process = Start-Process ./unsigned-a/MinimalJoystick.exe -ArgumentList "--ui-preview `"$preview`"" -WindowStyle Hidden -PassThru
+          if (!$process.WaitForExit(120000)) { Stop-Process -Id $process.Id; throw 'UI preview timed out' }
+          $process.Refresh()
+          if ($process.ExitCode -or !(Test-Path "$preview/calibration.png")) { throw 'UI render failed' }
       - name: Upload unsigned review artifacts
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:

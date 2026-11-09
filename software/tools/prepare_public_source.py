@@ -12,7 +12,7 @@ def sha(data):return hashlib.sha256(data).hexdigest()
 def inventory():
     files={}
     for p in ROOT.glob('*'):
-        if p.is_file() and (p.suffix in {'.cs','.ps1'} or p.name in {'LICENSE','LICENSING.md','HARDWARE-USB.md','VALIDATION-0.3.md'}):files[p.relative_to(ROOT).as_posix()]=p
+        if p.is_file() and (p.suffix in {'.cs','.ps1'} or p.name in {'LICENSE','LICENSING.md','HARDWARE-USB.md','BLUETOOTH-ARCHITECTURE.md','VALIDATION-0.3.md','VALIDATION-0.4.md'}):files[p.relative_to(ROOT).as_posix()]=p
     for folder in ['driver','vendor','tests','simulator-support','publication']:
         for p in (ROOT/folder).rglob('*'):
             if not p.is_file() or '__pycache__' in p.parts:continue
