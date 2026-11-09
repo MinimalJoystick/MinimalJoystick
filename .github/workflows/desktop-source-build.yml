@@ -30,6 +30,7 @@ jobs:
           dotnet --info | Set-Content evidence/dotnet.txt
           Get-ComputerInfo -Property OsBuildNumber,WindowsProductName | ConvertTo-Json | Set-Content evidence/windows.json
           Get-FileHash "$env:WINDIR/Microsoft.NET/Framework64/v4.0.30319/*.dll" | Select-Object Path,Hash | ConvertTo-Json | Set-Content evidence/framework-hashes.json
+          @(Get-ChildItem software -Filter '*.cs' | Sort-Object Name | ForEach-Object { @{ path=$_.Name; sha256=(Get-FileHash $_.FullName -Algorithm SHA256).Hash } }) | ConvertTo-Json | Set-Content evidence/source-hashes.json
       - name: Acquire checksum-verified pinned compiler
         shell: pwsh
         run: ./software/tools/Bootstrap-OpenSource.ps1 -Destination ./ci-tools

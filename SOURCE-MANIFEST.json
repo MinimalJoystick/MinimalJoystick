@@ -49,8 +49,8 @@
   },
   {
     "path": "software/DesktopDashboard.cs",
-    "bytes": 23601,
-    "sha256": "cef65bf4af392a58292efdf0976e569739bf02bda04212f4ce16f1773f01d4dc",
+    "bytes": 26000,
+    "sha256": "05d124c18703c0a1663295868c918a7ac6c0ae259e8e47f70743fb0fb96e54ae",
     "source_license": "MIT"
   },
   {
@@ -157,8 +157,8 @@
   },
   {
     "path": "software/VALIDATION-0.4.md",
-    "bytes": 2034,
-    "sha256": "973a2f0dac7063cbd3724eb0e6680e3c45469518b8408f73d824dffe416bdc3a",
+    "bytes": 2279,
+    "sha256": "bc3b58c00b6c6c29345de95ec508642e55dcaa9eaf42b4f3b3dde042c2783493",
     "source_license": "MIT"
   },
   {
@@ -511,8 +511,8 @@
   },
   {
     "path": ".github/workflows/desktop-source-build.yml",
-    "bytes": 4102,
-    "sha256": "509423eb722d8855f669ffbcbe88f73c0f8c8a82f96cbe3623c054d866a5eedd",
+    "bytes": 4328,
+    "sha256": "1a04e157128d2f5f969725dde65ce3898d45de20ce76375f5ca866db9b5d4e33",
     "source_license": "MIT"
   },
   {
