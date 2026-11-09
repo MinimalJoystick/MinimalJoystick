@@ -13,7 +13,7 @@ def inventory():
     files={}
     for p in ROOT.glob('*'):
         if p.is_file() and (p.suffix in {'.cs','.ps1'} or p.name in {'LICENSE','LICENSING.md','HARDWARE-USB.md','BLUETOOTH-ARCHITECTURE.md','VALIDATION-0.3.md','VALIDATION-0.4.md'}):files[p.relative_to(ROOT).as_posix()]=p
-    for folder in ['driver','vendor','tests','simulator-support','publication']:
+    for folder in ['driver','vendor','tests','simulator-support','publication','ui-previews']:
         for p in (ROOT/folder).rglob('*'):
             if not p.is_file() or '__pycache__' in p.parts:continue
             if p.name in {'LICENSE-MIT.proposed.txt','SIGNPATH-ELIGIBILITY-INQUIRY.txt'}:continue

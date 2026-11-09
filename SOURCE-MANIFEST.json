@@ -157,8 +157,8 @@
   },
   {
     "path": "software/VALIDATION-0.4.md",
-    "bytes": 3962,
-    "sha256": "1cf595a64bdf1d094895938b93e5137ed4ae42cbdd6ff70338734f19824ddba9",
+    "bytes": 4095,
+    "sha256": "d72d9a07d174212eec4662669c943533b57e5dad77324828536606fb1ed2d44e",
     "source_license": "MIT"
   },
   {
@@ -229,8 +229,8 @@
   },
   {
     "path": "software/publication/PUBLIC-README.md",
-    "bytes": 2605,
-    "sha256": "a65e635e998bdeb282dbce330d121ba6d267a33b4bcbf9415bac6f71752154db",
+    "bytes": 2781,
+    "sha256": "4f4cba7d52ce1a02f4a6d205aa5978778cca01a2dbc76164c1b5964e47fecbe5",
     "source_license": "MIT"
   },
   {
@@ -355,8 +355,50 @@
   },
   {
     "path": "software/tools/prepare_public_source.py",
-    "bytes": 5164,
-    "sha256": "dfbcf3c9d4c2ff13d1335c913e3549eaf86dca36f400059a1067bc7d2d111e59",
+    "bytes": 5178,
+    "sha256": "6114f672ef8830913fdca1b052d29e27a6fdf3608467b8eef4eb4e6c95dc0070",
+    "source_license": "MIT"
+  },
+  {
+    "path": "software/ui-previews/README.md",
+    "bytes": 464,
+    "sha256": "c2ca6ea2aaafad90ae9430abe0bd7c2f86f28652a28afa7e3add992deb30ccbf",
+    "source_license": "MIT"
+  },
+  {
+    "path": "software/ui-previews/calibration.png",
+    "bytes": 35559,
+    "sha256": "aa71d8a30e2d6a37b54fd96925001bb0347b46fd51185dadda1406111252fc18",
+    "source_license": "MIT"
+  },
+  {
+    "path": "software/ui-previews/desktop-0.png",
+    "bytes": 40909,
+    "sha256": "eec646b51f8df724b69dffa2c70d15a3d893b995782d3fe1f580f14816b7a398",
+    "source_license": "MIT"
+  },
+  {
+    "path": "software/ui-previews/desktop-1.png",
+    "bytes": 38842,
+    "sha256": "df97203a693ac604e0ed127a7f37b488a07df6b63a424d36da613474b4bb1f5a",
+    "source_license": "MIT"
+  },
+  {
+    "path": "software/ui-previews/desktop-2.png",
+    "bytes": 36531,
+    "sha256": "58216a4409defb4ba1e441886fd3cf123328d6cd783c4042476e9db52f64bd75",
+    "source_license": "MIT"
+  },
+  {
+    "path": "software/ui-previews/desktop-3.png",
+    "bytes": 27886,
+    "sha256": "ad3b40b36b52ead2c5a0d16ea40f090a1251f0b222459fc7c83467f16e27d458",
+    "source_license": "MIT"
+  },
+  {
+    "path": "software/ui-previews/desktop-compact.png",
+    "bytes": 40063,
+    "sha256": "446765c7c862bc6a0a041611b9c14050fce642d2f7f1b9ff5873aa202272d523",
     "source_license": "MIT"
   },
   {
@@ -493,8 +535,8 @@
   },
   {
     "path": "README.md",
-    "bytes": 2605,
-    "sha256": "a65e635e998bdeb282dbce330d121ba6d267a33b4bcbf9415bac6f71752154db",
+    "bytes": 2781,
+    "sha256": "4f4cba7d52ce1a02f4a6d205aa5978778cca01a2dbc76164c1b5964e47fecbe5",
     "source_license": "MIT"
   },
   {

@@ -2,6 +2,10 @@
 
 Windows software prototype for a flight-controller device, designed to expose one stable virtual joystick identity across USB/Bluetooth transport selection.
 
+![Desktop dashboard preview with sample data](software/ui-previews/desktop-0.png)
+
+The preview uses sample data; it does not demonstrate physical hardware or radio operation.
+
 ## Prototype status
 
 Version 0.4 adds a desktop dashboard, guided USB calibration, profile backup restore and a modeled Bluetooth/USB transport-v2 contract to the 0.3 USB bridge. Real Bluetooth remains unimplemented. Physical USB acceptance, real BLE, simulator acceptance and public installer qualification remain pending. Windows 11 x64 is the initial driver target. See `software/HARDWARE-USB.md`, `software/BLUETOOTH-ARCHITECTURE.md` and the validation records for measured scope.
